@@ -3,3 +3,6 @@
 
 # Keys
 /config
+
+# Node Modules
+/server/node_modules
