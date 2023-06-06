@@ -1,0 +1,15 @@
+const { Schema, model } = require('mongoose');
+
+// DEFINE THE LISTING MODEL SCHEMA
+const listingSchema = new Schema({
+    printfulId: Number,
+    title: String,
+    description: String,
+    images: [String]
+});
+
+// CREATE THE LISTING MODEL CLASS
+const ListingClass = model('listing', listingSchema);
+
+// EXPORT THE LISTING MODEL
+module.exports = ListingClass;
