@@ -12,7 +12,7 @@ const listingSchema = new Schema({
     title: String,
     variants: [variantSchema],
     description: { type: String, default: '' },
-    images: { type: [{ type: String }], default: [] }
+    images: { type: String, default: '' }
 });
 
 // CREATE THE LISTING MODEL
