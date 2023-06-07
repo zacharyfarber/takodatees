@@ -14,17 +14,17 @@ mongoose.connect(keys.mongoURI);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// TELL EXPRESS INSTANCE TO SET THE HEADERS ATTRIBUTE FOR PRINTFUL ROUTES
-app.use(function (req, res, next) {
-    const matchUrl = 'https://api.printful.com';
+// // TELL EXPRESS INSTANCE TO SET THE HEADERS ATTRIBUTE FOR PRINTFUL ROUTES
+// app.use(function (req, res, next) {
+//     const matchUrl = 'https://api.printful.com';
 
-    if (req.url.substring(0, matchUrl.length) === matchUrl) {
-        res.setHeader('Authorization', `Bearer ${keys.printfulToken}`);
-        res.setHeader('X-PF-Store-Id', keys.printfulStoreId);
-    }
+//     if (req.url.substring(0, matchUrl.length) === matchUrl) {
+//         res.setHeader('Authorization', `Bearer ${keys.printfulToken}`);
+//         res.setHeader('X-PF-Store-Id', keys.printfulStoreId);
+//     }
 
-    return next();
-});
+//     return next();
+// });
 
 // RUN PRINTFUL ROUTES
 printfulRouter(app);
