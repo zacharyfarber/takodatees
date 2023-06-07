@@ -35,7 +35,6 @@ module.exports = (app) => {
             const { sync_product } = data.result;
 
             const listing = new Listing({
-                printfulId: sync_product.id,
                 title: sync_product.name,
                 variants
             });

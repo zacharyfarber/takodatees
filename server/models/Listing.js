@@ -8,7 +8,6 @@ const variantSchema = new Schema({
 
 // DEFINE THE LISTING SCHEMA
 const listingSchema = new Schema({
-    printfulId: Number,
     title: String,
     variants: [variantSchema],
     description: { type: String, default: '' },
