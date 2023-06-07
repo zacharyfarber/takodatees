@@ -14,23 +14,34 @@ module.exports = (app) => {
                 `https://api.printful.com/store/products/${newProductId}`,
                 {
                     headers: {
-                        Authorization: keys.printfulToken,
+                        Authorization: `Bearer ${keys.printfulToken}`,
                         'X-PF-Store-Id': keys.printfulStoreId
                     }
                 }
             );
 
-            console.log(data);
+            // SET VARIANTS
+            const { sync_variants } = data.result;
+            let variants = [];
 
-            // // CREATE A NEW LISTING
-            // const listing = new Listing({
-            //     printfulId: product.id,
-            //     title: product.name
-            //     // variants:
-            // });
+            for (i in sync_variants) {
+                variants.push({
+                    variantId: sync_variants[i].id,
+                    variantName: sync_variants[i].name
+                });
+            }
 
-            // // SAVE THE NEW LISTING TO THE DATABASE
-            // await listing.save();
+            // CREATE A NEW LISTING
+            const { sync_product } = data.result;
+
+            const listing = new Listing({
+                printfulId: sync_product.id,
+                title: sync_product.name,
+                variants
+            });
+
+            // SAVE THE NEW LISTING TO THE DATABASE
+            await listing.save();
 
             // RESPOND TO SERVER WITH CODE 200 - OK
             res.status(200).json({ message: 'OK' });
