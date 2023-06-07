@@ -4,13 +4,13 @@ module.exports = (app) => {
     // RECIEVE NEW TEMPLATE FROM PRINTFUL ADD NEW PRODUCT TO THE DATABASE
     app.post('/printful-webhook', async (req, res) => {
         try {
-            // GRAB INCOMING REQUEST BODY
-            const body = req.body;
+            // GRAB INCOMING PRODUCT OBJECT FROM INCOMING REQUEST
+            const product = req.body.data.sync_product;
 
             // CREATE A NEW LISTING
             const listing = new Listing({
-                printfulId: body.id,
-                title: body.name
+                printfulId: product.id,
+                title: product.name
             });
 
             // SAVE THE NEW LISTING TO THE DATABASE

@@ -4,8 +4,8 @@ const { Schema, model } = require('mongoose');
 const listingSchema = new Schema({
     printfulId: Number,
     title: String,
-    description: { type: String, default: null },
-    images: { type: [{ type: String }], default: null }
+    description: { type: String, default: '' },
+    images: { type: [{ type: String }], default: [] }
 });
 
 // CREATE THE LISTING MODEL CLASS
