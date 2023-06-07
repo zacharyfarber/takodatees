@@ -4,6 +4,7 @@ const { Schema, model } = require('mongoose');
 const listingSchema = new Schema({
     printfulId: Number,
     title: String,
+    variants: { type: [{ type: String }] },
     description: { type: String, default: '' },
     images: { type: [{ type: String }], default: [] }
 });
