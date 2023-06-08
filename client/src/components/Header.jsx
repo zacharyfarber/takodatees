@@ -1,5 +1,14 @@
+import Dropdown from './Dropdown';
+import Cart from './Cart';
+
 function Header() {
-    return <div>Header</div>;
+    return (
+        <header>
+            <Dropdown />
+            <img src="" alt="logo" />
+            <Cart />
+        </header>
+    );
 }
 
 export default Header;
