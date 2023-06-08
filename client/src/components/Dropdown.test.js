@@ -24,8 +24,8 @@ test('changes the state of isOpen when button is clicked', async () => {
     userEvent.click(button);
 
     // FIND THE LIST ON THE SCREEN
-    const list = await screen.findByRole('list');
+    const nav = await screen.findByRole('navigation');
 
     // ASSERT THE ELEMENT IS IN THE DOCUMENT
-    expect(list).toBeInTheDocument();
+    expect(nav).toBeInTheDocument();
 });

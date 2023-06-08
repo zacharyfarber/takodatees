@@ -4,14 +4,10 @@ function Dropdown() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav>
+        <div>
             <button onClick={() => setIsOpen(!isOpen)}>Dropdown</button>
-            {isOpen && (
-                <div>
-                    <ul></ul>
-                </div>
-            )}
-        </nav>
+            {isOpen && <nav></nav>}
+        </div>
     );
 }
 

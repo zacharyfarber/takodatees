@@ -6,7 +6,7 @@ test('renders the dropdown component, the logo and the cart component', () => {
     render(<Header />);
 
     // FIND ELEMENTS ON THE SCREEN
-    const dropdown = screen.getByRole('navigation');
+    const dropdown = screen.getByRole('button', { name: /dropdown/i });
     const logo = screen.getByRole('img', { name: 'logo' });
     const cart = screen.getByRole('list');
 
