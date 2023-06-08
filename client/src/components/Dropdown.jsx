@@ -1,5 +1,14 @@
+import { useState } from 'react';
+
 function Dropdown() {
-    return <nav>Dropdown</nav>;
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <nav>
+            <button onClick={() => setIsOpen(!isOpen)}>Dropdown</button>
+            {isOpen && 'isOpen'}
+        </nav>
+    );
 }
 
 export default Dropdown;
