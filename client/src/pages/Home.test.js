@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Home from './Home';
 
-test('renders the home page', () => {
-    // RENDER COMPONENT
-    render(<App />);
+test('renders the Motto, Music, Featured and Mailing components', () => {
+    // RENDER THE COMPONENT
+    render(<Home />);
 
     // FIND TEXT ON THE SCREEN
     const motto = screen.getByText(/motto/i);
