@@ -13,7 +13,7 @@ test('renders a button', () => {
     expect(button).toBeInTheDocument();
 });
 
-test('changes the state of isOpen when button is clicked', async () => {
+test('renders a nav when button is clicked', async () => {
     // RENDER THE COMPONENT
     render(<Dropdown />);
 
@@ -23,9 +23,9 @@ test('changes the state of isOpen when button is clicked', async () => {
     // SIMULATE CLICK ON BUTTON
     userEvent.click(button);
 
-    // FIND THE LIST ON THE SCREEN
+    // FIND THE NAV ON THE SCREEN
     const nav = await screen.findByRole('navigation');
 
-    // ASSERT THE ELEMENT IS IN THE DOCUMENT
+    // ASSERT THE NAV IS IN THE DOCUMENT
     expect(nav).toBeInTheDocument();
 });
