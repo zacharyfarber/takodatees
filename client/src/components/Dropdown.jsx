@@ -6,7 +6,11 @@ function Dropdown() {
     return (
         <nav>
             <button onClick={() => setIsOpen(!isOpen)}>Dropdown</button>
-            {isOpen && 'isOpen'}
+            {isOpen && (
+                <div>
+                    <ul></ul>
+                </div>
+            )}
         </nav>
     );
 }
