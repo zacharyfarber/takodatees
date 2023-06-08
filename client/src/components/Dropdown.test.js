@@ -29,3 +29,23 @@ test('renders a nav when button is clicked', async () => {
     // ASSERT THE NAV IS IN THE DOCUMENT
     expect(nav).toBeInTheDocument();
 });
+
+test('hides the nav when button is clicked again', () => {
+    // RENDER THE COMPONENT
+    render(<Dropdown />);
+
+    // FIND THE BUTTON ON THE SCREEN
+    const button = screen.getByRole('button');
+
+    // SIMULATE CLICK ON BUTTON
+    userEvent.click(button);
+
+    // SIMULATE CLICK ON BUTTON AGAIN
+    userEvent.click(button);
+
+    // FIND THE NAV ON THE SCREEN
+    const nav = screen.queryByRole('navigation');
+
+    // ASSERT THE NAV IS NOT IN THE DOCUMENT
+    expect(nav).not.toBeInTheDocument();
+});
