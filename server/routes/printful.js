@@ -3,7 +3,7 @@ const keys = require('../../config/devKeys');
 const Listing = require('../models/Listing');
 
 module.exports = (app) => {
-    // RECIEVE NEW TEMPLATE FROM PRINTFUL ADD NEW PRODUCT TO THE DATABASE
+    // RECIEVE NEW TEMPLATE FROM PRINTFUL AND ADD NEW PRODUCT TO THE DATABASE
     app.post('/printful-webhook', async (req, res) => {
         try {
             // GRAB NEW PRODUCT ID FROM INCOMING REQUEST OBJECT
