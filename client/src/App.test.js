@@ -1,9 +1,15 @@
 import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { store } from './store';
 import App from './App';
 
 test('renders the header component, the home page and the footer component', () => {
     // RENDER COMPONENT
-    render(<App />);
+    render(
+        <Provider store={store}>
+            <App />
+        </Provider>
+    );
 
     // FIND ELEMENTS ON THE SCREEN
     const header = screen.getByRole('banner');

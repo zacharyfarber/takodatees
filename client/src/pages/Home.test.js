@@ -1,9 +1,15 @@
 import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { store } from '../store';
 import Home from './Home';
 
 test('renders the Motto, Music, Featured and Mailing components', () => {
     // RENDER THE COMPONENT
-    render(<Home />);
+    render(
+        <Provider store={store}>
+            <Home />
+        </Provider>
+    );
 
     // FIND TEXT ON THE SCREEN
     const motto = screen.getByText(/motto/i);
