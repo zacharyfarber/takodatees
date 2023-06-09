@@ -36,7 +36,8 @@ module.exports = (app) => {
 
             const listing = new Listing({
                 title: sync_product.name,
-                variants
+                variants,
+                createdAt: Date.now()
             });
 
             // SAVE THE NEW LISTING TO THE DATABASE

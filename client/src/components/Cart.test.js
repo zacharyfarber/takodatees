@@ -32,7 +32,7 @@ test('renders a list and checkout button when cart button is clicked', async () 
     expect(checkout).toBeInTheDocument();
 });
 
-test('hides the list and checkout button when cart button is clicked again', () => {
+test('hides a list and checkout button when cart button is clicked again', () => {
     // RENDER COMPONENT
     render(<Cart />);
 

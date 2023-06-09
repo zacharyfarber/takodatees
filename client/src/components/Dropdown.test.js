@@ -30,7 +30,7 @@ test('renders a nav when button is clicked', async () => {
     expect(nav).toBeInTheDocument();
 });
 
-test('hides the nav when button is clicked again', () => {
+test('hides a nav when button is clicked again', () => {
     // RENDER THE COMPONENT
     render(<Dropdown />);
 

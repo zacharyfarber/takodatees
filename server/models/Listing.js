@@ -10,6 +10,7 @@ const variantSchema = new Schema({
 const listingSchema = new Schema({
     title: String,
     variants: [variantSchema],
+    createdAt: Date,
     description: { type: String, default: '' },
     images: { type: String, default: '' }
 });
