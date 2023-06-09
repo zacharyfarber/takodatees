@@ -30,4 +30,4 @@ app.use(bodyParser.json());
 printfulRouter(app);
 
 // TELL EXPRESS INSTANCE TO LISTEN ON SPECIFIED PORT
-app.listen(3000);
+app.listen(5000);
