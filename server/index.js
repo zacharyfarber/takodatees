@@ -1,8 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const keys = require('../config/devKeys');
-const printfulRouter = require('./routes/printful');
+const printfulWebhookRouter = require('./routes/printfulWebhook');
+const productsRouter = require('./routes/products');
 
 // CREATE EXPRESS INSTANCE
 const app = express();
@@ -14,20 +16,14 @@ mongoose.connect(keys.mongoURI);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// // TELL EXPRESS INSTANCE TO SET THE HEADERS ATTRIBUTE FOR PRINTFUL ROUTES
-// app.use(function (req, res, next) {
-//     const matchUrl = 'https://api.printful.com';
-
-//     if (req.url.substring(0, matchUrl.length) === matchUrl) {
-//         res.setHeader('Authorization', `Bearer ${keys.printfulToken}`);
-//         res.setHeader('X-PF-Store-Id', keys.printfulStoreId);
-//     }
-
-//     return next();
-// });
+// // TELL EXPRESS INSTANCE TO USE CORS
+app.use(cors()); // Todo: Configure CORS to specific domains/sub domians/ports
 
 // RUN PRINTFUL ROUTES
-printfulRouter(app);
+printfulWebhookRouter(app);
+
+// RUN PRODUCTS ROUTES
+productsRouter(app);
 
 // TELL EXPRESS INSTANCE TO LISTEN ON SPECIFIED PORT
 app.listen(5000);

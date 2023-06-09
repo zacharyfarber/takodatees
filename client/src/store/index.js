@@ -10,5 +10,5 @@ const store = configureStore({
     }
 });
 
-export const { useGetRecentProducts } = productsApi;
+export const { useGetRecentProductsQuery } = productsApi;
 export { productsApi, store };
